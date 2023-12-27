@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./signals-demo.component.scss'],
   standalone: true,
   imports: [
-    CommonModule
+    NgFor
   ]
 })
 export class SignalsDemoComponent {
