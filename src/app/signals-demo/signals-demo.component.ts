@@ -12,17 +12,20 @@ import { Component, signal } from '@angular/core';
 })
 export class SignalsDemoComponent {
 
-  actions: string[] = [];
+  actions = signal<string[]>([]);
   counter = signal(0);
 
   inc() {
-    this.counter.update((oldCounter) =>  oldCounter + 1);
-    this.actions.push('INCREMENT');
+    // this.counter.update((oldCounter) =>  oldCounter + 1);
+    this.counter.set(this.counter() + 1);
+    // this.actions.push('INCREMENT');
+    this.actions.update((oldArray) => [...oldArray, 'INCREMENT']);
   }
 
   dec() {
     this.counter.update((oldCounter) =>  oldCounter - 1);
-    this.actions.push('DECREMENT');
+    this.actions.update((oldArray) => [...oldArray, 'DECREMENT']);
+    // this.actions.push('DECREMENT');
   }
 
 }
